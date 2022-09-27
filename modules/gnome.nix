@@ -34,7 +34,7 @@ in
         [org.gnome.shell]
         favorite-apps=[ 'firefox.desktop', 'org.gnome.Geary.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Nautilus.desktop', 'dev.vlinkz.NixSoftwareCenter.desktop' ]
       '';
-      extraGSettingsOverrides = lib.mkDefault ''
+      extraGSettingsOverrides = ''
         [org.gnome.desktop.background]
         picture-uri='file://${pkgs.nixos-artwork.wallpapers.nineish.gnomeFilePath}'
         picture-uri-dark='file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath}'
@@ -43,7 +43,6 @@ in
       '';
     };
     environment.gnome.excludePackages = [ nixos-background-info ];
-    xdg.portal.enable = lib.mkDefault true;
     environment.systemPackages = [ snowflakeos-background-info ];
   };
 }
