@@ -42,5 +42,6 @@ in
       });
     boot.initrd.systemd.contents."/etc/os-release".source = lib.mkForce initrdRelease;
     boot.initrd.systemd.contents."/etc/initrd-release".source = lib.mkForce initrdRelease;
+    boot.plymouth.enable = lib.mkDefault true;
   };
 }

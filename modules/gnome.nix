@@ -27,17 +27,23 @@ in
   };
 
   config = lib.mkIf config.snowflakeos.gnome.enable {
-    services.xserver.displayManager.gdm.enable = true;
-    services.xserver.desktopManager.gnome.enable = true;
+    services.xserver.displayManager.gdm.enable = lib.mkDefault true;
+    services.xserver.desktopManager.gnome = {
+      enable = lib.mkDefault true;
+      favoriteAppsOverride = lib.mkDefault ''
+        [org.gnome.shell]
+        favorite-apps=[ 'firefox.desktop', 'org.gnome.Geary.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Nautilus.desktop', 'dev.vlinkz.NixSoftwareCenter.desktop' ]
+      '';
+      extraGSettingsOverrides = lib.mkDefault ''
+        [org.gnome.desktop.background]
+        picture-uri='file://${pkgs.nixos-artwork.wallpapers.nineish.gnomeFilePath}'
+        picture-uri-dark='file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath}'
+        [org.gnome.desktop.screensaver]
+        picture-uri='file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath}'
+      '';
+    };
     environment.gnome.excludePackages = [ nixos-background-info ];
-    xdg.portal.enable = true;
-    services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
-       [org.gnome.desktop.background]
-       picture-uri='file://${pkgs.nixos-artwork.wallpapers.nineish.gnomeFilePath}'
-       picture-uri-dark='file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath}'
-       [org.gnome.desktop.screensaver]
-       picture-uri='file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath}'
-    '';
+    xdg.portal.enable = lib.mkDefault true;
     environment.systemPackages = [ snowflakeos-background-info ];
   };
 }
