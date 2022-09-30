@@ -27,6 +27,7 @@ in
   };
 
   config = lib.mkIf config.snowflakeos.gnome.enable {
+    snowflakeos.graphical.enable = true;
     services.xserver.displayManager.gdm.enable = lib.mkDefault true;
     services.xserver.desktopManager.gnome = {
       enable = lib.mkDefault true;
