@@ -1,9 +1,10 @@
 { lib, config, options, pkgs, ... }:
 {
   imports = [
-    ./version.nix
-    ./systemd-boot.nix
-    ./grub.nix
     ./gnome.nix
+    ./graphical.nix
+    ./grub.nix
+    ./systemd-boot.nix
+    ./version.nix
   ];
 }
