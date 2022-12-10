@@ -16,7 +16,7 @@ let
     BUILD_ID = cfg.version;
     PRETTY_NAME = "SnowflakeOS ${cfg.release} (${cfg.codeName})";
     LOGO = "nix-snowflake-white";
-    HOME_URL = "https://github.com/snowflakelinux";
+    HOME_URL = "https://snowflakeos.org";
     DOCUMENTATION_URL = "";
     SUPPORT_URL = "";
     BUG_REPORT_URL = "";

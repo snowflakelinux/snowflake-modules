@@ -10,9 +10,9 @@
 
     # Add opengl/vulkan support
     hardware.opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
+      enable = lib.mkDefault true;
+      driSupport = lib.mkDefault config.hardware.opengl.enable;
+      driSupport32Bit = lib.mkDefault config.hardware.opengl.enable;
     };
 
     # Enable NetworkManager
@@ -24,9 +24,9 @@
     security.rtkit.enable = lib.mkDefault true;
     services.pipewire = {
       enable = lib.mkDefault true;
-      alsa.enable = lib.mkDefault true;
-      alsa.support32Bit = lib.mkDefault true;
-      pulse.enable = lib.mkDefault true;
+      alsa.enable = lib.mkDefault config.services.pipewire.enable;
+      alsa.support32Bit = lib.mkDefault config.services.pipewire.enable;
+      pulse.enable = lib.mkDefault config.services.pipewire.enable;
     };
 
     # Enable CUPS to print documents.

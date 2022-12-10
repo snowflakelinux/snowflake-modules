@@ -1,5 +1,5 @@
 {
-  description = "My NixOS modules";
+  description = "SnowflakeOS modules";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
