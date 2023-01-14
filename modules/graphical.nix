@@ -12,7 +12,7 @@
     hardware.opengl = {
       enable = lib.mkDefault true;
       driSupport = lib.mkDefault config.hardware.opengl.enable;
-      driSupport32Bit = lib.mkDefault config.hardware.opengl.enable;
+      driSupport32Bit = lib.mkDefault (config.hardware.opengl.enable && pkgs.stdenv.hostPlatform.isx86);
     };
 
     # Enable NetworkManager
