@@ -4,7 +4,7 @@
     ./gnome.nix
     ./graphical.nix
     ./grub.nix
-    ./systemd-boot.nix
+    # ./systemd-boot.nix
     ./version.nix
   ];
   nix.settings.substituters = [ "https://snowflakeos.cachix.org/" ];
