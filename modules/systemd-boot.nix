@@ -39,10 +39,10 @@ let
       '') cfg.extraEntries)}
     '';
   };
-  checkedSystemdBootBuilder = pkgs.runCommand "systemd-boot"
-    {
-      nativeBuildInputs = [ pkgs.mypy ];
-    } ''
+
+  checkedSystemdBootBuilder = pkgs.runCommand "systemd-boot" {
+    nativeBuildInputs = [ pkgs.mypy pkgs.python3 ];
+  } ''
     install -m755 ${systemdBootBuilder} $out
     substituteInPlace $out \
       --replace "NixOS" "SnowflakeOS"
@@ -53,13 +53,19 @@ let
       $out
   '';
 
+  finalSystemdBootBuilder = pkgs.writeScript "install-systemd-boot.sh" ''
+    #!${pkgs.runtimeShell}
+    ${checkedSystemdBootBuilder} "$@"
+    ${cfg.extraInstallCommands}
+  '';
+
 in
 
 {
   config = lib.mkIf (config.boot.loader.systemd-boot.enable && config.snowflakeos.osInfo.enable)
     {
       system = {
-        build.installBootLoader = lib.mkForce checkedSystemdBootBuilder;
+        build.installBootLoader = lib.mkForce finalSystemdBootBuilder;
 
         boot.loader.id = "systemd-boot";
 
