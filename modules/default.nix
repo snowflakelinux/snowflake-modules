@@ -3,8 +3,7 @@
   imports = [
     ./gnome.nix
     ./graphical.nix
-    ./grub.nix
-    # ./systemd-boot.nix
+    ./hardware.nix
     ./version.nix
   ];
   nix.settings.substituters = [ "https://snowflakeos.cachix.org/" ];
