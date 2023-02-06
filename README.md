@@ -3,6 +3,7 @@
 SnowflakeOS Modules
 ===
 [![Built with Nix][builtwithnix badge]][builtwithnix]
+[![Built with Snowfall][snowfall badge]][snowfall]
 [![License: MIT][MIT badge]][MIT]
 [![Chat on Matrix][matrix badge]][matrix]
 [![Chat on Discord][discord badge]][discord]
@@ -19,3 +20,5 @@ SnowflakeOS is a NixOS based Linux distribution focused on beginner friendliness
 [matrix]: https://matrix.to/#/#snowflakeos:matrix.org
 [discord badge]: https://img.shields.io/discord/1021080090676842506?color=7289da&label=Discord&logo=discord&logoColor=ffffff&style=for-the-badge
 [discord]: https://discord.gg/6rWNMmdkgT
+[snowfall badge]: https://img.shields.io/static/v1?logoColor=d8dee9&label=Built%20With&labelColor=5e81ac&message=Snowfall&color=d8dee9&style=for-the-badge
+[snowfall]: https://github.com/snowfallorg/lib
